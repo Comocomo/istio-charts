@@ -7,7 +7,13 @@ This repository fills that gap.
 [istio-helm]: https://istio.io/latest/docs/setup/install/helm/
 [istio-issue]: https://github.com/istio/istio/issues/31275
 
-## Install Istio
+## How to deploy Helm Chart
+
+- Install [chart-releaser](https://github.com/helm/chart-releaser)
+- Export variable `CR_TOKEN` with github token
+- Run make fetch, make package, make upload, make index
+
+## Install Istio from Chart
 
 First, add this Helm repository:
 
@@ -40,16 +46,3 @@ helm install istio-egress istio/egress -n istio-system
 ```
 
 [istio-install]: https://istio.io/latest/docs/setup/install/helm/#installation-steps
-
-## Install Istio Operator
-
-Instead of using Helm to install Istio itself, you can use Helm to install the [Istio Operator][istio-operator], and then create `IstioOperator` resource(s) in your cluster to install Istio.
-
-```sh
-kubectl create namespace istio-operator
-helm install istio-operator istio/operator \
-  --set operatorNamespace=istio-operator \
-  --set watchedNamespaces=istio-system
-```
-
-[istio-operator]: https://istio.io/latest/docs/setup/install/operator/
