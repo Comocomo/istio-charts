@@ -1,6 +1,6 @@
 .PHONY: all clean fetch index package upload
 
-all: package
+all: index
 
 fetch:
 	./scripts/fetch.sh

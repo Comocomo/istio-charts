@@ -11,7 +11,8 @@ This repository fills that gap.
 
 - Install [chart-releaser](https://github.com/helm/chart-releaser)
 - Export variable `CR_TOKEN` with github token
-- Run make fetch, make package, make upload, make index
+- Run `make`
+- Push to github which will trigger Environment deploy
 
 ## Install Istio from Chart
 
